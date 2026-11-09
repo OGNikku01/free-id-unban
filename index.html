@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Free Fire Account Support</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(circle at top, #263a56, #080b12 55%, #030406);
+    color:white;
+}
+
+/* HEADER */
+
+header{
+    width:100%;
+    padding:18px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:rgba(0,0,0,0.45);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.logo{
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:1px;
+    color:#ffb300;
+}
+
+.logo span{
+    color:white;
+}
+
+.badge{
+    font-size:11px;
+    background:#ffb300;
+    color:#111;
+    padding:7px 10px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+/* MAIN */
+
+.container{
+    width:100%;
+    max-width:500px;
+    margin:auto;
+    padding:25px 18px 40px;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.game-icon{
+    width:75px;
+    height:75px;
+    margin:auto;
+    margin-bottom:15px;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:35px;
+    background:linear-gradient(135deg,#ffb300,#ff5e00);
+    box-shadow:0 10px 35px rgba(255,140,0,0.3);
+}
+
+.hero h1{
+    font-size:26px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:#aeb8c5;
+    font-size:14px;
+    line-height:1.6;
+}
+
+/* CARD */
+
+.card{
+    background:rgba(17,22,31,0.95);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:22px;
+    padding:22px;
+    box-shadow:0 15px 50px rgba(0,0,0,0.4);
+}
+
+.card h2{
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.card .small-text{
+    color:#9da7b4;
+    font-size:13px;
+    margin-bottom:22px;
+}
+
+/* FORM */
+
+.input-group{
+    margin-bottom:16px;
+}
+
+label{
+    display:block;
+    font-size:13px;
+    margin-bottom:8px;
+    color:#d5dbe3;
+}
+
+input,
+select{
+    width:100%;
+    padding:15px;
+    border-radius:12px;
+    border:1px solid #303846;
+    background:#0a0e15;
+    color:white;
+    outline:none;
+    font-size:15px;
+}
+
+input:focus,
+select:focus{
+    border-color:#ffb300;
+    box-shadow:0 0 0 3px rgba(255,179,0,0.1);
+}
+
+select option{
+    background:#111;
+}
+
+/* BUTTON */
+
+button{
+    width:100%;
+    border:none;
+    padding:16px;
+    border-radius:13px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    background:linear-gradient(90deg,#ffb300,#ff6700);
+    color:#111;
+    transition:0.25s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 25px rgba(255,130,0,0.3);
+}
+
+/* PAYMENT PAGE */
+
+#paymentPage{
+    display:none;
+}
+
+.success-box{
+    text-align:center;
+    padding:5px 0 15px;
+}
+
+.success-icon{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:#16a34a;
+    margin:0 auto 15px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:34px;
+}
+
+.user-info{
+    margin-top:20px;
+    padding:15px;
+    border-radius:14px;
+    background:#0a0e15;
+    border:1px solid #252c36;
+}
+
+.info-row{
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid #1f2630;
+    font-size:14px;
+}
+
+.info-row:last-child{
+    border-bottom:none;
+}
+
+.info-value{
+    color:#ffb300;
+    font-weight:bold;
+}
+
+/* QR */
+
+.qr-box{
+    margin-top:22px;
+    text-align:center;
+    padding:18px;
+    background:white;
+    border-radius:18px;
+}
+
+.qr-box img{
+    width:100%;
+    max-width:280px;
+    display:block;
+    margin:auto;
+}
+
+.qr-title{
+    margin-top:20px;
+    text-align:center;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.warning{
+    margin-top:15px;
+    padding:13px;
+    border-radius:12px;
+    background:rgba(255,179,0,0.08);
+    border:1px solid rgba(255,179,0,0.25);
+    color:#e6e6e6;
+    font-size:12px;
+    line-height:1.6;
+}
+
+.official-button{
+    display:block;
+    width:100%;
+    text-align:center;
+    text-decoration:none;
+    margin-top:15px;
+    padding:15px;
+    border-radius:13px;
+    background:#1d2633;
+    color:white;
+    font-weight:bold;
+}
+
+.back-button{
+    margin-top:12px;
+    background:#303846;
+    color:white;
+}
+
+footer{
+    text-align:center;
+    color:#687384;
+    font-size:11px;
+    padding:20px;
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+    .container{
+        padding:20px 14px 35px;
+    }
+
+    .card{
+        padding:18px;
+        border-radius:18px;
+    }
+
+    .hero h1{
+        font-size:23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        FF <span>SUPPORT</span>
+    </div>
+
+    <div class="badge">
+        ACCOUNT HELP
+    </div>
+
+</header>
+
+
+<div class="container">
+
+    <!-- FORM PAGE -->
+
+    <div id="formPage">
+
+        <div class="hero">
+
+            <div class="game-icon">
+                🎮
+            </div>
+
+            <h1>Free Fire Account Support</h1>
+
+            <p>
+                अपनी account information भरें और support request
+                details तैयार करें।
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h2>Account Details</h2>
+
+            <p class="small-text">
+                कृपया सही जानकारी भरें।
+            </p>
+
+
+            <form id="supportForm">
+
+                <div class="input-group">
+
+                    <label>Free Fire UID</label>
+
+                    <input
+                        type="number"
+                        id="uid"
+                        placeholder="अपनी Free Fire UID डालें"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>Player Level</label>
+
+                    <input
+                        type="number"
+                        id="level"
+                        placeholder="अपना गेम Level डालें"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="input-group">
+
+                    <label>Game / Mobile Version</label>
+
+                    <select id="version" required>
+
+                        <option value="">
+                            Version चुनें
+                        </option>
+
+                        <option>Free Fire</option>
+
+                        <option>Free Fire MAX</option>
+
+                        <option>Android</option>
+
+                        <option>iPhone / iOS</option>
+
+                    </select>
+
+                </div>
+
+
+                <button type="submit">
+                    SUBMIT DETAILS
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- PAYMENT / QR PAGE -->
+
+    <div id="paymentPage">
+
+        <div class="hero">
+
+            <div class="game-icon">
+                ✓
+            </div>
+
+            <h1>Request Details</h1>
+
+            <p>
+                आपकी दी गई जानकारी नीचे दिखाई जा रही है।
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="success-box">
+
+                <div class="success-icon">
+                    ✓
+                </div>
+
+                <h2>Details Submitted</h2>
+
+                <p class="small-text">
+                    कृपया नीचे दी गई जानकारी जांचें।
+                </p>
+
+            </div>
+
+
+            <div class="user-info">
+
+                <div class="info-row">
+
+                    <span>Free Fire UID</span>
+
+                    <span class="info-value" id="showUID">
+                    </span>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>Player Level</span>
+
+                    <span class="info-value" id="showLevel">
+                    </span>
+
+                </div>
+
+
+                <div class="info-row">
+
+                    <span>Game Version</span>
+
+                    <span class="info-value" id="showVersion">
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="qr-title">
+                Payment QR Code
+            </div>
+
+
+            <div class="qr-box">
+
+                <!-- QR IMAGE -->
+
+                <img
+                    src="payment-qr.png"
+                    alt="UPI Payment QR Code"
+                >
+
+            </div>
+
+
+            <div class="warning">
+
+                ⚠️ महत्वपूर्ण सूचना: यह वेबसाइट Garena की official
+                account-unban service नहीं है। किसी भी payment से
+                Free Fire ID unban होने की guarantee नहीं है।
+                Account ban या appeal का अंतिम निर्णय केवल Garena
+                की official support team करती है।
+
+            </div>
+
+
+            <a
+                class="official-button"
+                href="https://support-freefireind.garena.com/"
+                target="_blank"
+            >
+
+                OFFICIAL GARENA SUPPORT
+
+            </a>
+
+
+            <button
+                class="back-button"
+                onclick="goBack()"
+            >
+
+                BACK
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    This website is not affiliated with or endorsed by Garena.
+
+</footer>
+
+
+
+<script>
+
+const form = document.getElementById("supportForm");
+
+
+form.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+
+    const uid =
+        document.getElementById("uid").value;
+
+
+    const level =
+        document.getElementById("level").value;
+
+
+    const version =
+        document.getElementById("version").value;
+
+
+    document.getElementById("showUID").innerText =
+        uid;
+
+
+    document.getElementById("showLevel").innerText =
+        level;
+
+
+    document.getElementById("showVersion").innerText =
+        version;
+
+
+    document.getElementById("formPage").style.display =
+        "none";
+
+
+    document.getElementById("paymentPage").style.display =
+        "block";
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+});
+
+
+function goBack(){
+
+    document.getElementById("paymentPage").style.display =
+        "none";
+
+
+    document.getElementById("formPage").style.display =
+        "block";
+
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+</script>
+
+</body>
+</html>
